@@ -2,6 +2,7 @@ from collections import namedtuple
 import altair as alt
 import math
 import pandas as pd
+from PIL import Image
 import streamlit as st
 
 """
@@ -34,5 +35,8 @@ with st.echo(code_location='below'):
         data.append(Point(x, y))
 
     st.altair_chart(alt.Chart(pd.DataFrame(data), height=500, width=500)
-        .mark_circle(color='#0068c9', opacity=0.5)
-        .encode(x='x:Q', y='y:Q'))
+                    .mark_circle(color='#0068c9', opacity=0.5)
+                    .encode(x='x:Q', y='y:Q'))
+
+img = Image.open("images/1.png")
+st.image(img, width=300, caption="Simple Image<b>23</b>")
